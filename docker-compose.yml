@@ -1,0 +1,16 @@
+services:
+  mssql_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: fintech_wallet_mssql
+    restart: always
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "FintechPassword@123"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+
+volumes:
+  mssql_data:
